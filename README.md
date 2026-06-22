@@ -2,9 +2,9 @@
 
 ## Status
 
-- [x] Product spec is done: [`docs/product-spec.md`](docs/product-spec.md)
-- [x] Design system is done: [`docs/design-system/FamFiles Design System.dc.html`](docs/design-system/FamFiles%20Design%20System.dc.html)
-- [x] Concept pitch is done: [`docs/pitch.html`](docs/pitch.html)
+- [x] Product spec is done: [`code`](docs/product-spec.md)
+- [x] Design system is done: [`site`](https://divinetomedy.github.io/famfiles/design-system/FamFiles%20Design%20System.dc.html), [`code`](docs/design-system/FamFiles%20Design%20System.dc.html)
+- [x] Concept pitch is done: [`site`](https://divinetomedy.github.io/famfiles/pitch.html), [`code`](docs/pitch.html)
 - [ ] Code / implementation is not done.
 
 A private, Apple-native family information reference app for storing, finding, and using important family records — birthdays, SSNs, passports, driver's licenses, health and auto/home insurance, frequent-flyer numbers, vehicle and home records, and the documents behind them.
@@ -13,8 +13,8 @@ FamFiles is designed to make capturing family information dramatically easier th
 
 ## Two core interaction modes
 
-1. **In-app browsing and management** — navigate the household, people, and records.
-2. **Siri natural-language retrieval** — ask for information conversationally (e.g. "What is my SSN?") rather than through an in-app chat.
+1. **Siri natural-language retrieval** — ask for information conversationally (e.g. "What is my SSN?").
+2. **In-app browsing and management** — manage the household, people, and records.
 
 ## Core concepts
 
@@ -41,16 +41,16 @@ The first build is intentionally local-only to validate the product:
 
 - **Platform:** native Swift, iPhone first, iPad where practical.
 - **Storage:** local database and local file storage — no iCloud sync, no family sharing.
-- **Security:** no encryption or biometric gate in MVP; sensitive and non-sensitive answers share the same design. Privacy, encryption, sync, sharing, and authentication are added in deliberate later phases.
+- **Security:** no encryption or biometric gate in MVP; sensitive and non-sensitive answers share the same design. Privacy, encryption, sync, sharing, and authentication are added in deliberate later phases (see [`product spec`](docs/product-spec.md) for details).
 
-Six visual moments are in scope for MVP: simple Siri answer, grouped-record Siri answer, family (home) view, person view, grouped/card record view, and the Share Sheet import flow.
+Six UX moments are in scope for MVP: simple Siri answer, grouped-record Siri answer, family (home) view, person view, grouped/card record view, and the Share Sheet import flow.
 
 ## Product principles
 
-- Make adding information dramatically easier than maintaining a Google Doc.
-- Preserve the original source alongside structured data.
+- Make retrieving and managing information dramatically easier than anything else, even just maintaining a Google Doc.
+- Use Siri as the conversational interface.
+- Preserve the original source (e.g. card photos) alongside structured data.
 - Let high-confidence imports become usable immediately.
-- Use Siri as the conversational interface — no in-app chat.
 - Start local and simple; layer in privacy, encryption, sync, and sharing deliberately.
 - Never make the user manually organize data the app can reliably infer.
 
