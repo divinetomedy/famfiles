@@ -68,7 +68,6 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
 .script{font-size:clamp(34px,5vw,64px);line-height:1.04;letter-spacing:0;font-weight:900;margin:0;color:var(--ink)}
 .script-small{font-size:20px;line-height:1.45;font-weight:700;color:var(--secondary);margin:20px 0 0;max-width:640px}
 .phone-stage{display:flex;justify-content:center}
-.phone-label{display:flex;align-items:center;gap:9px;margin:0 0 14px;font-weight:800;font-size:14px}
 .num{font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:800;color:white;background:var(--coral);border-radius:7px;padding:3px 8px}
 .num.green{background:var(--mint)}
 .phone{position:relative;width:374px;height:780px;border-radius:50px;background:#0E0A16;padding:6px;box-shadow:0 44px 80px -28px rgba(42,34,51,.5);flex:none}
@@ -189,7 +188,6 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
   .demo-step{margin-bottom:86px}
   .phone{width:320px;height:667px;border-radius:43px}
   .screen,.share-screen{border-radius:37px}
-  .phone-label{justify-content:center}
   .siri-card{padding:17px;border-radius:24px}
   .big-value{font-size:30px}
   .field{padding:10px 11px}
@@ -205,20 +203,18 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
     <div>
       <div class="brand">
         <div class="logo"><i class="ph-fill ph-folders"></i></div>
-        <div class="brand-name">Fam<span>Files</span></div>
       </div>
-      <h1>FamFiles</h1>
-      <p class="lede">Your family's info vault, all in one place – and answered instantly by Siri.</p>
+      <h1>Fam<span style="color:var(--coral)">Files</span></h1>
+      <p class="lede">Your family's info vault, all in one place – answered instantly by Siri.</p>
       <div class="chips">
         <div class="chip"><i class="ph-fill ph-sparkle"></i> Siri-first</div>
-        <div class="chip"><i class="ph-fill ph-lock-simple"></i> Private by design</div>
         <div class="chip"><i class="ph-fill ph-users-three"></i> Built for families</div>
+        <div class="chip"><i class="ph-fill ph-lock-simple"></i> Private</div>
       </div>
     </div>
     <div class="hero-side">
       <div>
-        <div class="phone-label"><span class="num">02</span> Siri · grouped record</div>
-        <div class="phone siri-health"></div>
+        <div class="phone siri-ssn"></div>
       </div>
     </div>
   </section>
@@ -263,28 +259,28 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
         <div class="script-block">
           <p class="script">Let's start with a simple Siri request for a piece of information.</p>
         </div>
-        <div class="phone-stage"><div><div class="phone-label"><span class="num">01</span> Siri · simple answer</div><div class="phone siri-ssn"></div></div></div>
+        <div class="phone-stage"><div><div class="phone siri-ssn"></div></div></div>
       </div>
 
       <div class="demo-step reverse">
         <div class="script-block">
           <p class="script">That was easy. How about something a little more complex?</p>
         </div>
-        <div class="phone-stage"><div><div class="phone-label"><span class="num">02</span> Siri · grouped record</div><div class="phone siri-health"></div></div></div>
+        <div class="phone-stage"><div><div class="phone siri-health"></div></div></div>
       </div>
 
       <div class="demo-step">
         <div class="script-block">
           <p class="script">Got it. All the information is easily available and individually copiable. What if you open the FamFiles app?</p>
         </div>
-        <div class="phone-stage"><div><div class="phone-label"><span class="num">05</span> Main · record view</div><div class="phone record-view"></div></div></div>
+        <div class="phone-stage"><div><div class="phone record-view"></div></div></div>
       </div>
 
       <div class="demo-step reverse">
         <div class="script-block">
           <p class="script">Lots more information, including the card image itself and version history. What's the family view of the app?</p>
         </div>
-        <div class="phone-stage"><div><div class="phone-label"><span class="num">03</span> Main · family view</div><div class="phone family-view"></div></div></div>
+        <div class="phone-stage"><div><div class="phone family-view"></div></div></div>
       </div>
 
       <div class="demo-step">
@@ -292,14 +288,14 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
           <p class="script">All family members, household information, and recent activity.</p>
           <p class="script-small">Authorized family members can use Siri to get this info, with access controls as necessary. What about a person view?</p>
         </div>
-        <div class="phone-stage"><div><div class="phone-label"><span class="num">04</span> Main · person view</div><div class="phone person-view"></div></div></div>
+        <div class="phone-stage"><div><div class="phone person-view"></div></div></div>
       </div>
 
       <div class="demo-step reverse">
         <div class="script-block">
           <p class="script">Makes sense. How do you update info?</p>
         </div>
-        <div class="phone-stage"><div><div class="phone-label"><span class="num">06</span> Share Sheet · reading</div><div class="phone share-reading"></div></div></div>
+        <div class="phone-stage"><div><div class="phone share-reading"></div></div></div>
       </div>
 
       <div class="demo-step" style="margin-bottom:0">
@@ -307,7 +303,7 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
           <p class="script">Ooh, I likey. Just share-sheet any content to FamFiles and it figures out what to do.</p>
           <p class="script-small">Email, photo, text, Slack, whatever. If the app is confident, it updates the right record. If not, it asks one quick clarifying question.</p>
         </div>
-        <div class="phone-stage"><div><div class="phone-label"><span class="num green">06</span> Share Sheet · updated</div><div class="phone share-updated"></div></div></div>
+        <div class="phone-stage"><div><div class="phone share-updated"></div></div></div>
       </div>
     </div>
   </section>
