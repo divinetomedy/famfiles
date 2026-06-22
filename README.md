@@ -49,5 +49,5 @@ Six visual moments are in scope for MVP: simple Siri answer, grouped-record Siri
 
 ## Repository contents
 
-- [`famfiles product spec.md`](famfiles%20product%20spec.md) — the full product specification.
-- [`FamFiles app design system/`](FamFiles%20app%20design%20system/) — design-system reference and assets.
+- [`docs/product-spec.md`](docs/product-spec.md) — the full product specification.
+- [`docs/design-system/`](docs/design-system/) — design-system reference and assets.
