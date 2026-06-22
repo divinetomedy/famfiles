@@ -4,7 +4,7 @@
 
 - [x] Product spec is done: [`docs/product-spec.md`](docs/product-spec.md)
 - [x] Design system is done: [`docs/design-system/FamFiles Design System.dc.html`](docs/design-system/FamFiles%20Design%20System.dc.html)
-- [x] Concept pitch is done: [`docs/design-system/FamFiles Pitch.html`](docs/design-system/FamFiles%20Pitch.html)
+- [x] Concept pitch is done: [`docs/FamFiles Pitch.html`](docs/FamFiles%20Pitch.html)
 - [ ] Code / implementation is not done.
 
 A private, Apple-native family information reference app for storing, finding, and using important family records — birthdays, SSNs, passports, driver's licenses, health and auto/home insurance, frequent-flyer numbers, vehicle and home records, and the documents behind them.
