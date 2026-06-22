@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FamFiles Pitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<style>
+:root{
+  --canvas:#F1EBE4;
+  --card:#FFFFFF;
+  --sand:#FAF5EF;
+  --hairline:#ECE5DD;
+  --outline:#E4E1E0;
+  --ink:#2A2233;
+  --secondary:#6E6678;
+  --tertiary:#A8A2AE;
+  --coral:#FF6B57;
+  --coral-pressed:#EE543E;
+  --grape:#8B5CF6;
+  --sky:#36B5F0;
+  --mint:#18C7A0;
+  --sun:#FFC23D;
+  --shadow:5px 5px 0 var(--outline);
+  --small-shadow:2.5px 2.5px 0 var(--outline);
+  --head:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Hanken Grotesk",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--canvas);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased}
+body{background-image:radial-gradient(1000px 520px at 78% -4%,rgba(255,107,87,.12),transparent),radial-gradient(900px 520px at 4% 8%,rgba(139,92,246,.09),transparent)}
+button{font:inherit}
+.page{overflow:hidden}
+.wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+.hero{min-height:92svh;padding:54px 0 72px;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,430px);gap:52px;align-items:center}
+.brand{display:flex;align-items:center;gap:18px;margin-bottom:48px}
+.logo{width:76px;height:76px;border-radius:22px;background:linear-gradient(150deg,#FF9F5B,var(--coral) 52%,#FF6FA5);box-shadow:0 14px 30px -10px rgba(255,107,87,.65),inset 0 1px 0 rgba(255,255,255,.4);display:grid;place-items:center;flex:none}
+.logo i{font-size:39px;color:white}
+h1,h2,h3,.script,.brand-name{font-family:var(--head)}
+.brand-name{font-size:42px;font-weight:900;letter-spacing:0;line-height:1}
+.brand-name span{color:var(--coral)}
+h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22px;font-weight:900;max-width:850px}
+.lede{font-size:clamp(22px,3vw,34px);line-height:1.18;font-weight:800;max-width:800px;margin:0 0 28px;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:white;border:1px solid var(--hairline);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:800}
+.chip i{color:var(--coral)}
+.hero-side{display:flex;justify-content:center;align-items:center;min-height:720px}
+.section{padding:86px 0}
+.section.alt{background:rgba(255,255,255,.34)}
+.kicker{font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:12px}
+.section-title{font-size:clamp(34px,5vw,58px);line-height:1.02;letter-spacing:0;margin:0 0 18px;font-weight:900;max-width:760px}
+.section-copy{font-size:20px;line-height:1.55;font-weight:650;color:var(--secondary);max-width:820px;margin:0}
+.problem-grid,.solution-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.panel{background:white;border:2.5px solid var(--outline);border-radius:28px;box-shadow:var(--shadow);padding:24px}
+.panel i{font-size:28px;color:var(--coral);margin-bottom:14px}
+.panel h3{font-size:22px;line-height:1.12;margin:0 0 10px;font-weight:900}
+.panel p{font-size:16px;line-height:1.45;font-weight:650;color:var(--secondary);margin:0}
+.solution-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,410px);gap:42px;align-items:start}
+.note{margin-top:28px;padding:20px 22px;border-left:5px solid var(--coral);background:rgba(255,255,255,.58);border-radius:0 20px 20px 0;font-size:18px;line-height:1.45;font-weight:750;color:var(--ink)}
+.walkthrough{padding:98px 0 110px}
+.demo-step{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);gap:54px;align-items:center;margin:0 0 118px}
+.demo-step.reverse{grid-template-columns:minmax(280px,420px) minmax(0,1fr)}
+.demo-step.reverse .script-block{grid-column:2}
+.demo-step.reverse .phone-stage{grid-column:1;grid-row:1}
+.script{font-size:clamp(34px,5vw,64px);line-height:1.04;letter-spacing:0;font-weight:900;margin:0;color:var(--ink)}
+.script-small{font-size:20px;line-height:1.45;font-weight:700;color:var(--secondary);margin:20px 0 0;max-width:640px}
+.phone-stage{display:flex;justify-content:center}
+.phone-label{display:flex;align-items:center;gap:9px;margin:0 0 14px;font-weight:800;font-size:14px}
+.num{font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:800;color:white;background:var(--coral);border-radius:7px;padding:3px 8px}
+.num.green{background:var(--mint)}
+.phone{position:relative;width:374px;height:780px;border-radius:50px;background:#0E0A16;padding:6px;box-shadow:0 44px 80px -28px rgba(42,34,51,.5);flex:none}
+.screen{position:relative;width:100%;height:100%;border-radius:44px;overflow:hidden;color:var(--ink);background:var(--canvas)}
+.screen.siri{display:flex;flex-direction:column;background:linear-gradient(180deg,#2A2038 0%,#160F22 60%,#100A19 100%);color:white}
+.notch{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:110px;height:30px;border-radius:16px;background:#000;z-index:8}
+.status{height:52px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 28px 7px;font-weight:800;font-size:15px}
+.status-icons{display:flex;align-items:center;gap:6px}
+.siri-body{flex:1;display:flex;flex-direction:column;padding:14px 18px 24px}
+.orb{position:relative;width:74px;height:74px;margin:8px auto 0}
+.orb.small{width:58px;height:58px;margin-top:2px}
+.orb::before{content:"";position:absolute;inset:-12px;border-radius:50%;background:conic-gradient(from 200deg,var(--sky),var(--grape),var(--coral),var(--sun),var(--mint),var(--sky));filter:blur(16px);opacity:.7}
+.orb.small::before{inset:-10px;filter:blur(13px)}
+.orb::after{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 200deg,var(--sky),var(--grape),var(--coral),var(--sun),var(--mint),var(--sky))}
+.orb-inner{position:absolute;inset:7px;border-radius:50%;background:rgba(18,12,26,.78);z-index:1}
+.orb.small .orb-inner{inset:6px}
+.orb i{position:absolute;inset:0;display:grid;place-items:center;font-size:24px;color:white;z-index:2}
+.orb.small i{font-size:19px}
+.query{text-align:center;font-weight:700;font-size:15px;color:rgba(255,255,255,.72);margin-top:16px}
+.query.compact{font-size:14px;margin-top:12px}
+.push{margin-top:auto}
+.siri-card{background:white;border-radius:28px;padding:22px;color:var(--ink);box-shadow:0 24px 50px -16px rgba(0,0,0,.55)}
+.siri-card.compact{padding:20px}
+.person-row{display:flex;align-items:center;gap:13px;margin-bottom:8px}
+.avatar{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:white;font-weight:900;font-size:20px;flex:none}
+.avatar.tom{background:linear-gradient(145deg,#5FC8FF,#2C9BE8)}
+.avatar.scarlet{background:linear-gradient(145deg,#FF8A6E,#F0563F)}
+.avatar.mercer{background:linear-gradient(145deg,#A985FF,#7C4DF0)}
+.avatar.winnie{background:linear-gradient(145deg,#43E0BC,#10B892)}
+.avatar.august{background:linear-gradient(145deg,#FFD66B,#FFB020)}
+.avatar.small{width:26px;height:26px;font-size:12px}
+.avatar.large{width:84px;height:84px;font-size:34px}
+.person-name{font-weight:800;font-size:17px;line-height:1.1}
+.person-meta{font-size:13px;font-weight:700;color:var(--tertiary);display:flex;align-items:center;gap:5px}
+.big-value{font-size:36px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:0;margin:14px 0 20px}
+.cta-row{display:flex;gap:10px}
+.cta{flex:1;background:var(--coral);color:white;font-weight:800;font-size:16px;padding:14px;border-radius:16px;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px}
+.secondary-cta{background:var(--sand);color:var(--ink);font-weight:800;font-size:16px;padding:14px 18px;border-radius:16px;box-shadow:inset 0 0 0 1px var(--hairline)}
+.provider{font-size:23px;font-weight:800;line-height:1.15}
+.plan{font-size:13px;font-weight:700;color:var(--tertiary);margin-bottom:14px}
+.field-list{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--sand);border-radius:14px;padding:11px 14px}
+.field-label{font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--tertiary)}
+.field-value{font-size:16px;font-weight:800;font-variant-numeric:tabular-nums}
+.copy-pill{display:flex;align-items:center;gap:6px;background:white;border-radius:999px;padding:8px 13px;box-shadow:inset 0 0 0 1px var(--hairline);font-weight:800;font-size:13px}
+.app-body{height:calc(100% - 52px);overflow:hidden;display:flex;flex-direction:column}
+.app-header{padding:14px 22px 6px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.family-title{font-family:var(--head);font-size:27px;font-weight:900;line-height:1.05;letter-spacing:0}
+.muted{font-size:13px;font-weight:700;color:var(--tertiary)}
+.circle-button{width:44px;height:44px;border-radius:50%;background:white;box-shadow:0 2px 6px rgba(42,34,51,.1);display:grid;place-items:center;flex:none}
+.content-scroll{flex:1;overflow:hidden;padding:8px 0 0}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--tertiary);padding:8px 22px 0}
+.family-strip{display:flex;gap:14px;padding:6px 22px 14px;overflow:hidden}
+.family-member{display:flex;flex-direction:column;align-items:center;gap:8px;flex:none;width:64px;font-size:13px;font-weight:800}
+.family-member .avatar{width:62px;height:62px;font-size:24px}
+.card-list{margin:8px 22px;background:white;border-radius:20px;border:2.5px solid var(--outline);box-shadow:var(--small-shadow);overflow:hidden}
+.list-item{display:flex;align-items:center;gap:13px;padding:14px 16px}
+.icon-tile{width:42px;height:42px;border-radius:13px;background:var(--sand);box-shadow:inset 0 0 0 1px var(--hairline);display:grid;place-items:center;flex:none}
+.divider{height:1px;background:#F1ECE6;margin-left:71px}
+.fade-cta{position:absolute;left:0;right:0;bottom:0;height:96px;background:linear-gradient(180deg,rgba(241,235,228,0),var(--canvas) 46%);display:flex;align-items:center;justify-content:center}
+.pill-button{background:var(--coral);color:white;font-weight:800;font-size:16px;padding:15px 30px;border-radius:999px;display:flex;align-items:center;gap:9px}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:6px 20px}
+.person-hero{display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 0 14px}
+.person-title{font-family:var(--head);font-size:24px;font-weight:900;letter-spacing:0;margin-top:8px}
+.person-sections{padding:0 20px;display:flex;flex-direction:column;gap:16px}
+.section-row-title{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--tertiary);padding:0 4px 8px}
+.record-head{padding:8px 20px 0}
+.category{display:inline-flex;align-items:center;gap:6px;background:var(--sand);border-radius:999px;padding:6px 12px;font-weight:800;font-size:12px;box-shadow:inset 0 0 0 1px var(--hairline)}
+.record-title{font-family:var(--head);font-size:23px;font-weight:900;letter-spacing:0;margin:10px 0 0}
+.record-content{padding:14px 20px 0;display:flex;flex-direction:column;gap:14px}
+.provider-card{background:linear-gradient(145deg,#FF8A6E,var(--coral));border-radius:20px;padding:18px 20px;color:white}
+.source-card{background:white;border-radius:20px;padding:12px;border:2.5px solid var(--outline);box-shadow:var(--small-shadow);display:flex;align-items:center;gap:14px}
+.image-placeholder{width:100px;height:64px;border-radius:12px;background:repeating-linear-gradient(45deg,#EFE8DE,#EFE8DE 8px,#E4DCD0 8px,#E4DCD0 16px);box-shadow:inset 0 0 0 1px #E3DACE;flex:none;display:flex;align-items:flex-end;justify-content:flex-start;padding:7px}
+.image-placeholder span{font-family:ui-monospace,Menlo,monospace;font-size:10px;color:#9A9290}
+.share-screen{position:relative;width:100%;height:100%;border-radius:44px;overflow:hidden;background:repeating-linear-gradient(45deg,#3A3340,#3A3340 14px,#332D3B 14px,#332D3B 28px)}
+.share-screen::before{content:"";position:absolute;inset:0;background:rgba(16,11,23,.55)}
+.photo-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:ui-monospace,Menlo,monospace;font-size:12px;color:rgba(255,255,255,.5)}
+.sheet{position:absolute;left:0;right:0;bottom:0;background:white;border-radius:30px 30px 44px 44px;padding:14px 22px 30px;box-shadow:0 -20px 50px -10px rgba(0,0,0,.4)}
+.handle{width:38px;height:5px;border-radius:3px;background:#E3DACE;margin:0 auto 16px}
+.sheet-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.app-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(150deg,#FF9F5B,var(--coral) 55%,#FF6FA5);display:grid;place-items:center;flex:none}
+.app-icon i{font-size:22px;color:white}
+.spinner{width:26px;height:26px;border-radius:50%;border:3px solid #F1ECE6;border-top-color:var(--coral)}
+.extract-card{display:flex;gap:14px;align-items:center;background:var(--sand);border-radius:16px;padding:12px;margin-bottom:14px}
+.doc-thumb{width:60px;height:74px;border-radius:10px;background:repeating-linear-gradient(45deg,#E7DFD5,#E7DFD5 7px,#DCD3C7 7px,#DCD3C7 14px);box-shadow:inset 0 0 0 1px #D8CFC2;flex:none}
+.success{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;margin-bottom:20px}
+.success-icon{width:62px;height:62px;border-radius:50%;background:var(--mint);display:grid;place-items:center}
+.success-icon i{font-size:32px;color:white}
+.footer-band{padding:70px 0 86px;background:var(--ink);color:white}
+.footer-band .section-title{color:white}
+.footer-band .section-copy{color:rgba(255,255,255,.72)}
+.source-note{margin-top:28px;font-size:13px;line-height:1.45;color:rgba(255,255,255,.54);max-width:780px}
+.implementation-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:34px}
+.implementation-card{background:white;border:2.5px solid var(--outline);border-radius:28px;box-shadow:var(--shadow);padding:26px;display:flex;flex-direction:column;gap:14px}
+.implementation-card .icon{width:48px;height:48px;border-radius:15px;background:var(--sand);box-shadow:inset 0 0 0 1px var(--hairline);display:grid;place-items:center}
+.implementation-card .icon i{font-size:25px;color:var(--coral)}
+.implementation-card h3{font-size:24px;line-height:1.12;margin:0;font-weight:900}
+.implementation-card p{font-size:17px;line-height:1.48;font-weight:650;color:var(--secondary);margin:0}
+.implementation-list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.tech-pill{background:rgba(255,255,255,.62);border:1px solid var(--hairline);border-radius:18px;padding:16px;font-size:15px;line-height:1.35;font-weight:750;color:var(--secondary)}
+.tech-pill b{display:block;color:var(--ink);font-size:16px;margin-bottom:4px}
+@media (max-width:980px){
+  .hero,.solution-layout,.demo-step,.demo-step.reverse{grid-template-columns:1fr;gap:34px}
+  .hero{padding-top:36px}
+  .hero-side{min-height:auto}
+  .demo-step.reverse .script-block,.demo-step.reverse .phone-stage{grid-column:auto;grid-row:auto}
+  .problem-grid,.solution-grid,.implementation-grid,.implementation-list{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  :root{--shadow:var(--small-shadow)}
+  .wrap{width:min(100% - 28px,1180px)}
+  .hero{min-height:auto;padding:28px 0 54px}
+  .brand{margin-bottom:36px}
+  .logo{width:62px;height:62px;border-radius:18px}
+  .brand-name{font-size:34px}
+  .section{padding:60px 0}
+  .walkthrough{padding:72px 0}
+  .demo-step{margin-bottom:86px}
+  .phone{width:320px;height:667px;border-radius:43px}
+  .screen,.share-screen{border-radius:37px}
+  .phone-label{justify-content:center}
+  .siri-card{padding:17px;border-radius:24px}
+  .big-value{font-size:30px}
+  .field{padding:10px 11px}
+  .copy-pill{padding:7px 10px}
+  .field-value{font-size:14px}
+  .panel{padding:20px;border-radius:24px}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <section class="hero wrap">
+    <div>
+      <div class="brand">
+        <div class="logo"><i class="ph-fill ph-folders"></i></div>
+        <div class="brand-name">Fam<span>Files</span></div>
+      </div>
+      <h1>FamFiles</h1>
+      <p class="lede">Your family's info vault, all in one place – and answered instantly by Siri.</p>
+      <div class="chips">
+        <div class="chip"><i class="ph-fill ph-sparkle"></i> Siri-first</div>
+        <div class="chip"><i class="ph-fill ph-lock-simple"></i> Private by design</div>
+        <div class="chip"><i class="ph-fill ph-users-three"></i> Built for families</div>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div>
+        <div class="phone-label"><span class="num">02</span> Siri · grouped record</div>
+        <div class="phone siri-health"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <div class="kicker">The Problem</div>
+      <h2 class="section-title">Family admin lives everywhere except where you need it.</h2>
+      <p class="section-copy">Health insurance cards sit in drawers. A kid's Social Security number gets texted between spouses. Camp signups need a photo of the latest card. Passport details change, membership numbers go stale, and everyone quietly relies on the better-organized spouse to remember where the truth lives.</p>
+      <div class="problem-grid">
+        <div class="panel"><i class="ph ph-chat-text"></i><h3>Text threads become storage.</h3><p>Important details get buried in old messages, screenshots, and "can you send that again?" moments.</p></div>
+        <div class="panel"><i class="ph ph-file-text"></i><h3>Shared docs decay fast.</h3><p>A Google Doc feels practical for a week, then nobody knows whether the card photo or policy number is current.</p></div>
+        <div class="panel"><i class="ph ph-folder-open"></i><h3>Physical files are never nearby.</h3><p>The one card or number you need is usually in a drawer, wallet, backpack, or email attachment somewhere else.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap solution-layout">
+      <div>
+        <div class="kicker">The Solution</div>
+        <h2 class="section-title">A Siri-first vault for sensitive family info.</h2>
+        <p class="section-copy">The key is not just storing the records. The key is asking naturally: "What's Mercer's health insurance?" or "What's my SSN?" As of WWDC 2026, Siri can reach App Intents and render custom snippet views, which makes a real answer card possible for the first time.</p>
+        <p class="section-copy" style="margin-top:18px;">With on-device models and encrypted iCloud storage shared across authorized family members, sensitive data can stay obscured from the app maker, random third parties, and anyone who should not see it. Yes, Apple could eventually build this themselves. Until then, this is a damn fine solution.</p>
+        <div class="note">The product promise is simple: the family source of truth, spoken back by Siri when that is enough, rendered as a card when a screen is available, and opened in FamFiles when the user needs the full record.</div>
+      </div>
+      <div class="solution-grid">
+        <div class="panel"><i class="ph ph-microphone"></i><h3>Ask out loud.</h3><p>Siri handles the quick question before the signup form, doctor's office, or airport counter turns stressful.</p></div>
+        <div class="panel"><i class="ph ph-cardholder"></i><h3>See the right card.</h3><p>Snippet views show the key values, source, and next action without forcing a full app launch.</p></div>
+        <div class="panel"><i class="ph ph-shield-check"></i><h3>Keep it locked down.</h3><p>Family sharing, local intelligence, and encryption define who can access what.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="walkthrough">
+    <div class="wrap">
+      <div class="kicker">Product Walkthrough</div>
+      <h2 class="section-title">The demo is the pitch.</h2>
+      <p class="section-copy">Start with the thing every family already understands: needing one piece of information right now.</p>
+
+      <div class="demo-step" style="margin-top:72px">
+        <div class="script-block">
+          <p class="script">Let's start with a simple Siri request for a piece of information.</p>
+        </div>
+        <div class="phone-stage"><div><div class="phone-label"><span class="num">01</span> Siri · simple answer</div><div class="phone siri-ssn"></div></div></div>
+      </div>
+
+      <div class="demo-step reverse">
+        <div class="script-block">
+          <p class="script">That was easy. How about something a little more complex?</p>
+        </div>
+        <div class="phone-stage"><div><div class="phone-label"><span class="num">02</span> Siri · grouped record</div><div class="phone siri-health"></div></div></div>
+      </div>
+
+      <div class="demo-step">
+        <div class="script-block">
+          <p class="script">Got it. All the information is easily available and individually copiable. What if you open the FamFiles app?</p>
+        </div>
+        <div class="phone-stage"><div><div class="phone-label"><span class="num">05</span> Main · record view</div><div class="phone record-view"></div></div></div>
+      </div>
+
+      <div class="demo-step reverse">
+        <div class="script-block">
+          <p class="script">Lots more information, including the card image itself and version history. What's the family view of the app?</p>
+        </div>
+        <div class="phone-stage"><div><div class="phone-label"><span class="num">03</span> Main · family view</div><div class="phone family-view"></div></div></div>
+      </div>
+
+      <div class="demo-step">
+        <div class="script-block">
+          <p class="script">All family members, household information, and recent activity.</p>
+          <p class="script-small">Authorized family members can use Siri to get this info, with access controls as necessary. What about a person view?</p>
+        </div>
+        <div class="phone-stage"><div><div class="phone-label"><span class="num">04</span> Main · person view</div><div class="phone person-view"></div></div></div>
+      </div>
+
+      <div class="demo-step reverse">
+        <div class="script-block">
+          <p class="script">Makes sense. How do you update info?</p>
+        </div>
+        <div class="phone-stage"><div><div class="phone-label"><span class="num">06</span> Share Sheet · reading</div><div class="phone share-reading"></div></div></div>
+      </div>
+
+      <div class="demo-step" style="margin-bottom:0">
+        <div class="script-block">
+          <p class="script">Ooh, I likey. Just share-sheet any content to FamFiles and it figures out what to do.</p>
+          <p class="script-small">Email, photo, text, Slack, whatever. If the app is confident, it updates the right record. If not, it asks one quick clarifying question.</p>
+        </div>
+        <div class="phone-stage"><div><div class="phone-label"><span class="num green">06</span> Share Sheet · updated</div><div class="phone share-updated"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <div class="kicker">Implementation</div>
+      <h2 class="section-title">Native where it matters, encrypted where it counts, intelligent at the edges.</h2>
+      <p class="section-copy">FamFiles should feel like a small, trustworthy iOS app, not an enterprise records system. The stack is built around native Apple surfaces for the family-facing experience, a compact cloud layer for sync and coordination, and AI used only where it removes work from the user.</p>
+
+      <div class="implementation-grid">
+        <div class="implementation-card">
+          <div class="icon"><i class="ph ph-device-mobile"></i></div>
+          <h3>Front end: SwiftUI, App Intents, and system surfaces.</h3>
+          <p>The primary client is a SwiftUI iPhone app with reusable record, family, person, and import views. The same core model powers widgets, Shortcuts, Share Sheet extensions, and Siri custom snippet views, so the app and the system answers stay visually and behaviorally aligned.</p>
+        </div>
+        <div class="implementation-card">
+          <div class="icon"><i class="ph ph-cloud-check"></i></div>
+          <h3>Back end: CloudKit first, service layer only where useful.</h3>
+          <p>The default data plane is iCloud and CloudKit: private family databases, shared records, change history, conflict resolution, and offline-first sync. A small server can handle entitlement checks, analytics, support tooling, and non-sensitive orchestration, but the sensitive record payloads should not need to live on FamFiles-owned servers.</p>
+        </div>
+        <div class="implementation-card">
+          <div class="icon"><i class="ph ph-sparkle"></i></div>
+          <h3>AI: extraction, matching, cleanup, and confidence.</h3>
+          <p>AI reads incoming photos, PDFs, emails, text snippets, and screenshots; proposes record types; extracts fields; matches the right family member; detects whether an update supersedes older data; and asks a clarifying question when confidence is low. On-device Vision, Apple Foundation Models, and task-specific server models can be mixed depending on sensitivity and capability.</p>
+        </div>
+        <div class="implementation-card">
+          <div class="icon"><i class="ph ph-microphone"></i></div>
+          <h3>Siri: App Intents plus WWDC 2026 Apple Intelligence APIs.</h3>
+          <p>FamFiles exposes people, records, documents, and household categories as App Entities with strong display representations. App Intents handle queries like "What's Mercer's health insurance?", return spoken dialog for voice-only contexts, and render custom SwiftUI snippet views when a screen is available. App and entity schemas make records more discoverable to Siri AI, while View Annotations can connect visible app screens to the right entities.</p>
+        </div>
+        <div class="implementation-card">
+          <div class="icon"><i class="ph ph-share-network"></i></div>
+          <h3>Ingestion: app capture plus Share Sheet everywhere.</h3>
+          <p>Users can scan from inside FamFiles, but the more important path is sharing anything into the app: a card photo, camp email, Slack message, PDF, screenshot, or copied text. The Share Extension packages the item, runs local classification where possible, and routes it into the same review/update pipeline used by the main app.</p>
+        </div>
+        <div class="implementation-card">
+          <div class="icon"><i class="ph ph-lock-key"></i></div>
+          <h3>Privacy: encrypt first, reveal narrowly.</h3>
+          <p>Sensitive values should be encrypted before sync, scoped to authorized family members, and revealed only for the current task. Siri responses need a visual answer, a voice-only fallback, and a privacy mode that masks fields unless the user is authenticated and the context is appropriate. Audit trails show who added, viewed, copied, or changed a record.</p>
+        </div>
+      </div>
+
+      <div class="implementation-list">
+        <div class="tech-pill"><b>Data model</b>Family, person, record, field, source document, version, access grant, activity event.</div>
+        <div class="tech-pill"><b>AI pipeline</b>Classify, extract, normalize, match, diff, score confidence, request confirmation.</div>
+        <div class="tech-pill"><b>Siri surfaces</b>Dialog for AirPods/HomePod/CarPlay; snippet views for iPhone, iPad, Mac, and Vision Pro.</div>
+        <div class="tech-pill"><b>Security controls</b>iCloud account identity, family sharing permissions, app lock, biometric gates, per-record access.</div>
+        <div class="tech-pill"><b>Sync strategy</b>Local-first storage, CloudKit sync, encrypted payloads, deterministic merge rules, version history.</div>
+        <div class="tech-pill"><b>Operational layer</b>Minimal backend for billing, support, telemetry, schema migrations, and non-sensitive jobs.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer-band">
+    <div class="wrap">
+      <div class="kicker">Why Now</div>
+      <h2 class="section-title">Siri finally has enough surface area for this to feel native.</h2>
+      <p class="section-copy">FamFiles is not another database people have to remember to open. It is the private family memory layer that Siri can query, summarize, and present when the moment calls for it.</p>
+      <p class="source-note">Platform framing based on Apple's WWDC 2026 App Intents and Siri guidance, including custom snippet views, App Intents, entity display representations, voice-only dialog fallbacks, and Apple Intelligence integrations.</p>
+    </div>
+  </section>
+</main>
+
+<template id="tpl-siri-ssn">
+  <div class="screen siri">
+    <div class="notch"></div>
+    <div class="status"><div>9:41</div><div class="status-icons"><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full" style="font-size:19px"></i></div></div>
+    <div class="siri-body">
+      <div class="orb"><div class="orb-inner"></div><i class="ph-fill ph-sparkle"></i></div>
+      <div class="query">&ldquo;What's my SSN?&rdquo;</div>
+      <div class="push"></div>
+      <div class="siri-card">
+        <div class="person-row"><div class="avatar tom">T</div><div><div class="person-name">Tom</div><div class="person-meta"><i class="ph ph-identification-card"></i> Social Security Number</div></div></div>
+        <div class="big-value">123-45-6789</div>
+        <div class="cta-row"><div class="cta"><i class="ph ph-copy"></i> Copy</div><div class="secondary-cta">Open</div></div>
+      </div>
+      <div style="text-align:center;font-size:12px;font-weight:700;color:rgba(255,255,255,.42);margin-top:16px">Ask Siri to read it aloud, or tap to copy</div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-siri-health">
+  <div class="screen siri">
+    <div class="notch"></div>
+    <div class="status"><div>9:41</div><div class="status-icons"><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full" style="font-size:19px"></i></div></div>
+    <div class="siri-body">
+      <div class="orb small"><div class="orb-inner"></div><i class="ph-fill ph-sparkle"></i></div>
+      <div class="query compact">&ldquo;What's Mercer's health insurance?&rdquo;</div>
+      <div class="push"></div>
+      <div class="siri-card compact">
+        <div class="person-row" style="margin-bottom:14px"><div class="avatar mercer" style="width:44px;height:44px;font-size:19px">M</div><div><div class="person-name" style="font-size:16px">Mercer</div><div class="person-meta"><i class="ph ph-heartbeat"></i> Health Insurance</div></div></div>
+        <div class="provider">Premera Blue Cross</div>
+        <div class="plan">Premera Gold PPO</div>
+        <div class="field-list">
+          <div class="field"><div><div class="field-label">Member ID</div><div class="field-value">9XK4 2207 118</div></div><div class="copy-pill"><i class="ph ph-copy"></i> Copy</div></div>
+          <div class="field"><div><div class="field-label">Group Number</div><div class="field-value">100-4471</div></div><div class="copy-pill"><i class="ph ph-copy"></i> Copy</div></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 14px"><div style="font-size:14px;font-weight:700;color:var(--secondary)">Subscriber</div><div style="font-size:14px;font-weight:800">Scarlet</div></div>
+        </div>
+        <div class="cta-row" style="margin-top:16px"><div class="cta" style="font-size:15px;padding:13px;border-radius:15px">Open in FamFiles</div></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-family-view">
+  <div class="screen">
+    <div class="notch"></div>
+    <div class="status"><div>9:41</div><div class="status-icons"><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full" style="font-size:19px"></i></div></div>
+    <div class="app-body">
+      <div class="app-header"><div><div class="family-title">The Clifton<br>Family</div><div class="muted" style="margin-top:6px">5 people · 14 records</div></div><div class="circle-button"><i class="ph ph-gear-six" style="font-size:22px;color:var(--secondary)"></i></div></div>
+      <div class="content-scroll">
+        <div class="eyebrow">Family</div>
+        <div class="family-strip">
+          <div class="family-member"><div class="avatar tom">T</div><div>Tom</div></div><div class="family-member"><div class="avatar scarlet">S</div><div>Scarlet</div></div><div class="family-member"><div class="avatar mercer">M</div><div>Mercer</div></div><div class="family-member"><div class="avatar winnie">W</div><div>Winnie</div></div><div class="family-member"><div class="avatar august">A</div><div>August</div></div>
+        </div>
+        <div class="eyebrow">Household</div>
+        <div class="card-list"><div class="list-item"><div class="icon-tile"><i class="ph ph-house-line"></i></div><div style="flex:1"><div style="font-weight:800;font-size:15px">Home Insurance</div><div class="muted" style="font-size:12px">State Farm · policy on file</div></div><i class="ph ph-caret-right" style="color:#C9C2CE"></i></div><div class="divider"></div><div class="list-item"><div class="icon-tile"><i class="ph ph-car-profile"></i></div><div style="flex:1"><div style="font-weight:800;font-size:15px">Auto Insurance</div><div class="muted" style="font-size:12px">Geico · 2 vehicles</div></div><i class="ph ph-caret-right" style="color:#C9C2CE"></i></div></div>
+        <div class="eyebrow">Recent activity</div>
+        <div class="card-list" style="padding:16px;display:flex;flex-direction:column;gap:14px"><div style="display:flex;gap:12px"><div style="width:9px;height:9px;border-radius:50%;background:var(--sky);margin-top:5px"></div><div><div style="font-size:14px;font-weight:700">Tom's passport updated</div><div class="muted" style="font-size:12px">2 days ago</div></div></div><div style="display:flex;gap:12px"><div style="width:9px;height:9px;border-radius:50%;background:var(--mint);margin-top:5px"></div><div><div style="font-size:14px;font-weight:700">New health-insurance card added</div><div class="muted" style="font-size:12px">5 days ago</div></div></div><div style="display:flex;gap:12px"><div style="width:9px;height:9px;border-radius:50%;background:var(--sun);margin-top:5px"></div><div><div style="font-size:14px;font-weight:700">Scarlet's frequent-flyer number added</div><div class="muted" style="font-size:12px">1 week ago</div></div></div></div>
+      </div>
+    </div>
+    <div class="fade-cta"><div class="pill-button"><i class="ph-bold ph-plus"></i> Add to FamFiles</div></div>
+  </div>
+</template>
+
+<template id="tpl-person-view">
+  <div class="screen">
+    <div class="notch"></div><div class="status"><div>9:41</div><div class="status-icons"><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full" style="font-size:19px"></i></div></div>
+    <div class="app-body" style="display:block">
+      <div class="topbar"><div class="circle-button" style="width:40px;height:40px"><i class="ph-bold ph-caret-left"></i></div><div style="font-size:15px;font-weight:800;color:var(--coral)">Edit</div></div>
+      <div class="person-hero"><div class="avatar mercer large">M</div><div class="person-title">Mercer Clifton</div><div class="muted">Daughter · 8 records</div><div class="pill-button" style="font-size:14px;padding:11px 22px;margin-top:10px"><i class="ph-bold ph-plus"></i> Add info</div></div>
+      <div class="person-sections">
+        <div><div class="section-row-title"><i class="ph ph-identification-card"></i> Identity</div><div class="card-list" style="margin:0;border-radius:18px"><div class="list-item"><div style="flex:1;font-weight:800;font-size:15px">Social Security Number</div><div class="muted" style="font-size:13px;font-variant-numeric:tabular-nums">•••• 6789</div><i class="ph ph-caret-right" style="color:#C9C2CE"></i></div><div class="divider" style="margin-left:16px"></div><div class="list-item"><div style="flex:1;font-weight:800;font-size:15px">Birthday</div><div class="muted" style="font-size:13px">May 12, 2014</div><i class="ph ph-caret-right" style="color:#C9C2CE"></i></div></div></div>
+        <div><div class="section-row-title"><i class="ph ph-heartbeat"></i> Health</div><div class="card-list" style="margin:0;border-radius:18px"><div class="list-item"><div style="flex:1"><div style="font-weight:800;font-size:15px">Health Insurance</div><div class="muted" style="font-size:12px">Premera Blue Cross</div></div><div style="width:36px;height:26px;border-radius:6px;background:repeating-linear-gradient(45deg,#EFE8DE,#EFE8DE 5px,#E4DCD0 5px,#E4DCD0 10px)"></div><i class="ph ph-caret-right" style="color:#C9C2CE"></i></div></div></div>
+        <div><div class="section-row-title"><i class="ph ph-airplane-tilt"></i> Travel</div><div class="card-list" style="margin:0;border-radius:18px"><div class="list-item"><div style="flex:1;font-weight:800;font-size:15px">Passport</div><div class="muted" style="font-size:13px">Exp. Mar 2031</div><i class="ph ph-caret-right" style="color:#C9C2CE"></i></div><div class="divider" style="margin-left:16px"></div><div class="list-item"><div style="flex:1;font-weight:800;font-size:15px">Frequent Flyer</div><div class="muted" style="font-size:13px">Alaska · Delta</div><i class="ph ph-caret-right" style="color:#C9C2CE"></i></div></div></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-record-view">
+  <div class="screen">
+    <div class="notch"></div><div class="status"><div>9:41</div><div class="status-icons"><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full" style="font-size:19px"></i></div></div>
+    <div class="app-body" style="display:block">
+      <div class="topbar"><div class="circle-button" style="width:40px;height:40px"><i class="ph-bold ph-caret-left"></i></div><div style="font-size:15px;font-weight:800;color:var(--coral);display:flex;gap:6px"><i class="ph ph-pencil-simple"></i> Edit</div></div>
+      <div class="record-head"><div class="category"><i class="ph ph-heartbeat"></i> Health</div><div class="record-title">Mercer's Health Insurance</div><div style="display:flex;align-items:center;gap:8px;margin-top:8px"><div class="avatar mercer small">M</div><div style="font-size:13px;font-weight:700;color:var(--secondary)">Mercer Clifton</div></div></div>
+      <div class="record-content">
+        <div class="provider-card"><div style="font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;opacity:.85">Provider</div><div style="font-family:var(--head);font-size:24px;font-weight:900;line-height:1.1;margin-top:2px">Premera Blue Cross</div><div style="font-size:13px;font-weight:700;opacity:.9;margin-top:3px">Premera Gold PPO</div></div>
+        <div class="card-list" style="margin:0"><div class="list-item" style="justify-content:space-between"><div><div class="field-label">Member ID</div><div class="field-value">9XK4 2207 118</div></div><div class="copy-pill" style="background:var(--sand)"><i class="ph ph-copy"></i> Copy</div></div><div class="divider" style="margin-left:16px"></div><div class="list-item" style="justify-content:space-between"><div><div class="field-label">Group Number</div><div class="field-value">100-4471</div></div><div class="copy-pill" style="background:var(--sand)"><i class="ph ph-copy"></i> Copy</div></div><div class="divider" style="margin-left:16px"></div><div class="list-item" style="justify-content:space-between"><div><div class="field-label">Customer service</div><div class="field-value">800-722-1471</div></div><div class="copy-pill" style="background:var(--sand)"><i class="ph ph-phone"></i> Call</div></div></div>
+        <div><div class="section-row-title" style="padding:0 4px 8px">Source · original kept</div><div class="source-card"><div class="image-placeholder"><span>insurance card</span></div><div style="flex:1"><div style="font-weight:800;font-size:14px">Insurance card photo</div><div class="muted" style="font-size:12px">Imported Jun 18 · HEIC</div></div><i class="ph ph-arrow-up-right" style="color:var(--tertiary)"></i></div></div>
+        <div><div class="section-row-title" style="padding:0 4px 8px">Activity</div><div style="display:flex;flex-direction:column;gap:12px;padding:0 4px"><div style="display:flex;gap:11px"><div style="width:9px;height:9px;border-radius:50%;background:var(--mint);margin-top:5px"></div><div><div style="font-size:13px;font-weight:700">Updated from new card image</div><div class="muted" style="font-size:11px">Jun 18, 2026</div></div></div><div style="display:flex;gap:11px"><div style="width:9px;height:9px;border-radius:50%;background:var(--tertiary);margin-top:5px"></div><div><div style="font-size:13px;font-weight:700">Added from image</div><div class="muted" style="font-size:11px">Jun 4, 2026</div></div></div></div></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-share-reading">
+  <div class="share-screen"><div class="notch"></div><div class="photo-label">passport photo</div><div class="sheet"><div class="handle"></div><div class="sheet-head"><div class="app-icon"><i class="ph-fill ph-folders"></i></div><div style="flex:1"><div style="font-family:var(--head);font-weight:900;font-size:17px">Add to FamFiles</div><div class="muted" style="font-size:12px">Reading your document...</div></div><div class="spinner"></div></div><div class="extract-card"><div class="doc-thumb"></div><div style="flex:1;display:flex;flex-direction:column;gap:7px"><div class="copy-pill" style="align-self:flex-start"><i class="ph ph-identification-card" style="color:var(--grape)"></i> Passport detected</div><div style="display:flex;align-items:center;gap:8px"><div class="avatar tom small">T</div><div style="font-size:13px;font-weight:700;color:var(--secondary)">Likely <b style="color:var(--ink)">Tom</b></div></div></div></div><div class="section-row-title" style="padding:0;margin-bottom:8px">Extracting</div><div class="field-list"><div class="field"><div style="font-size:13px;font-weight:700;color:var(--secondary)">Passport number</div><div style="display:flex;gap:6px;font-size:14px;font-weight:800"><i class="ph-fill ph-check-circle" style="color:var(--mint)"></i> 5411 22 879</div></div><div class="field"><div style="font-size:13px;font-weight:700;color:var(--secondary)">Expiration date</div><div style="display:flex;gap:6px;font-size:14px;font-weight:800"><i class="ph-fill ph-check-circle" style="color:var(--mint)"></i> Mar 14, 2034</div></div></div></div></div>
+</template>
+
+<template id="tpl-share-updated">
+  <div class="share-screen"><div class="notch"></div><div class="sheet"><div class="handle" style="margin-bottom:22px"></div><div class="success"><div class="success-icon"><i class="ph-bold ph-check"></i></div><div style="font-family:var(--head);font-size:22px;font-weight:900;margin-top:6px">Tom's passport updated</div><div style="font-size:14px;font-weight:600;color:var(--secondary);max-width:260px">New passport number and expiration date saved.</div></div><div class="extract-card" style="margin-bottom:18px"><div class="doc-thumb" style="width:54px;height:66px"></div><div style="flex:1"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="avatar tom small">T</div><div style="font-weight:800;font-size:14px">Tom · Passport</div></div><div class="muted" style="font-size:12px;font-variant-numeric:tabular-nums">No. 5411 22 879 · exp Mar 2034</div></div></div><div class="field-list"><div class="cta">View record</div><div style="color:var(--secondary);font-weight:800;font-size:16px;padding:13px;border-radius:16px;text-align:center">Done</div></div></div></div>
+</template>
+
+<script>
+const mounts = [
+  ["siri-ssn","tpl-siri-ssn"],
+  ["siri-health","tpl-siri-health"],
+  ["family-view","tpl-family-view"],
+  ["person-view","tpl-person-view"],
+  ["record-view","tpl-record-view"],
+  ["share-reading","tpl-share-reading"],
+  ["share-updated","tpl-share-updated"]
+];
+for (const [mountClass, templateId] of mounts) {
+  document.querySelectorAll("." + mountClass).forEach((node) => {
+    node.appendChild(document.getElementById(templateId).content.cloneNode(true));
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FamFiles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#F1EBE4;--card:#fff;--outline:#E4E1E0;--ink:#2A2233;--secondary:#6E6678;--coral:#FF6B57;--shadow:5px 5px 0 var(--outline)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--canvas);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif}
+body{display:grid;place-items:center;padding:36px;background-image:radial-gradient(900px 480px at 80% 0%,rgba(255,107,87,.12),transparent),radial-gradient(800px 420px at 5% 12%,rgba(139,92,246,.09),transparent)}
+main{width:min(860px,100%);background:var(--card);border:2.5px solid var(--outline);border-radius:28px;box-shadow:var(--shadow);padding:34px}
+h1{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:52px;line-height:1;margin:0 0 12px;font-weight:900}
+h1 span{color:var(--coral)}
+p{font-size:20px;line-height:1.45;font-weight:650;color:var(--secondary);margin:0 0 28px;max-width:660px}
+.links{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+a{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--ink);background:#FAF5EF;border:1px solid #ECE5DD;border-radius:18px;padding:18px;font-weight:850}
+a span{font-size:13px;line-height:1.35;color:var(--secondary);font-weight:700}
+@media (max-width:720px){body{padding:20px}main{padding:24px;border-radius:24px}.links{grid-template-columns:1fr}h1{font-size:42px}p{font-size:18px}}
+</style>
+</head>
+<body>
+<main>
+  <h1>Fam<span>Files</span></h1>
+  <p>Your family's info vault, all in one place – and answered instantly by Siri.</p>
+  <div class="links">
+    <a href="./design-system/FamFiles%20Pitch.html">Concept pitch<span>The shareable one-page walkthrough and implementation overview.</span></a>
+    <a href="./design-system/FamFiles%20Design%20System.dc.html">Design system<span>Visual language, components, and MVP example screens.</span></a>
+    <a href="./product-spec.md">Product spec<span>Scope, concepts, intake flow, MVP, and product principles.</span></a>
+  </div>
+</main>
+</body>
+</html>
