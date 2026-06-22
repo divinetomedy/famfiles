@@ -53,12 +53,7 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
 .kicker{font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:12px}
 .section-title{font-size:clamp(34px,5vw,58px);line-height:1.02;letter-spacing:0;margin:0 0 18px;font-weight:900;max-width:760px}
 .section-copy{font-size:20px;line-height:1.55;font-weight:650;color:var(--secondary);max-width:820px;margin:0}
-.problem-grid,.solution-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
-.panel{background:white;border:2.5px solid var(--outline);border-radius:28px;box-shadow:var(--shadow);padding:24px}
-.panel i{font-size:28px;color:var(--coral);margin-bottom:14px}
-.panel h3{font-size:22px;line-height:1.12;margin:0 0 10px;font-weight:900}
-.panel p{font-size:16px;line-height:1.45;font-weight:650;color:var(--secondary);margin:0}
-.solution-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,410px);gap:42px;align-items:start}
+.solution-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:42px;align-items:start}
 .note{margin-top:28px;padding:20px 22px;border-left:5px solid var(--coral);background:rgba(255,255,255,.58);border-radius:0 20px 20px 0;font-size:18px;line-height:1.45;font-weight:750;color:var(--ink)}
 .walkthrough{padding:98px 0 110px}
 .demo-step{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);gap:54px;align-items:center;margin:0 0 118px}
@@ -174,7 +169,7 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
   .hero{padding-top:36px}
   .hero-side{min-height:auto}
   .demo-step.reverse .script-block,.demo-step.reverse .phone-stage{grid-column:auto;grid-row:auto}
-  .problem-grid,.solution-grid,.implementation-grid,.implementation-list{grid-template-columns:1fr}
+  .implementation-grid,.implementation-list{grid-template-columns:1fr}
 }
 @media (max-width:640px){
   :root{--shadow:var(--small-shadow)}
@@ -193,7 +188,6 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
   .field{padding:10px 11px}
   .copy-pill{padding:7px 10px}
   .field-value{font-size:14px}
-  .panel{padding:20px;border-radius:24px}
 }
 </style>
 </head>
@@ -207,9 +201,9 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
       <h1>Fam<span style="color:var(--coral)">Files</span></h1>
       <p class="lede">Your family's info vault, all in one place – answered instantly by Siri.</p>
       <div class="chips">
-        <div class="chip"><i class="ph-fill ph-sparkle"></i> Siri-first</div>
-        <div class="chip"><i class="ph-fill ph-users-three"></i> Built for families</div>
+        <div class="chip"><i class="ph-fill ph-sparkle"></i> Siri</div>
         <div class="chip"><i class="ph-fill ph-lock-simple"></i> Private</div>
+        <div class="chip"><i class="ph-fill ph-users-three"></i> Built for families</div>
       </div>
     </div>
     <div class="hero-side">
@@ -221,97 +215,97 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
 
   <section class="section alt">
     <div class="wrap">
-      <div class="kicker">The Problem</div>
-      <h2 class="section-title">Family admin lives everywhere except where you need it.</h2>
-      <p class="section-copy">Health insurance cards sit in drawers. A kid's Social Security number gets texted between spouses. Camp signups need a photo of the latest card. Passport details change, membership numbers go stale, and everyone quietly relies on the better-organized spouse to remember where the truth lives.</p>
-      <div class="problem-grid">
-        <div class="panel"><i class="ph ph-chat-text"></i><h3>Text threads become storage.</h3><p>Important details get buried in old messages, screenshots, and "can you send that again?" moments.</p></div>
-        <div class="panel"><i class="ph ph-file-text"></i><h3>Shared docs decay fast.</h3><p>A Google Doc feels practical for a week, then nobody knows whether the card photo or policy number is current.</p></div>
-        <div class="panel"><i class="ph ph-folder-open"></i><h3>Physical files are never nearby.</h3><p>The one card or number you need is usually in a drawer, wallet, backpack, or email attachment somewhere else.</p></div>
-      </div>
+      <div class="kicker">Problem</div>
+      <h2 class="section-title">Keeping track of everyone's info is hard.</h2>
+      <p class="section-copy">Health insurance cards, SSNs, passport photos, camp forms, and membership numbers are scattered across drawers, texts, wallets, emails, and half-stale shared docs. Most families just rely on one organized person to remember where everything is.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap solution-layout">
       <div>
-        <div class="kicker">The Solution</div>
-        <h2 class="section-title">A Siri-first vault for sensitive family info.</h2>
-        <p class="section-copy">The key is not just storing the records. The key is asking naturally: "What's Mercer's health insurance?" or "What's my SSN?" As of WWDC 2026, Siri can reach App Intents and render custom snippet views, which makes a real answer card possible for the first time.</p>
-        <p class="section-copy" style="margin-top:18px;">With on-device models and encrypted iCloud storage shared across authorized family members, sensitive data can stay obscured from the app maker, random third parties, and anyone who should not see it. Yes, Apple could eventually build this themselves. Until then, this is a damn fine solution.</p>
-        <div class="note">The product promise is simple: the family source of truth, spoken back by Siri when that is enough, rendered as a card when a screen is available, and opened in FamFiles when the user needs the full record.</div>
-      </div>
-      <div class="solution-grid">
-        <div class="panel"><i class="ph ph-microphone"></i><h3>Ask out loud.</h3><p>Siri handles the quick question before the signup form, doctor's office, or airport counter turns stressful.</p></div>
-        <div class="panel"><i class="ph ph-cardholder"></i><h3>See the right card.</h3><p>Snippet views show the key values, source, and next action without forcing a full app launch.</p></div>
-        <div class="panel"><i class="ph ph-shield-check"></i><h3>Keep it locked down.</h3><p>Family sharing, local intelligence, and encryption define who can access what.</p></div>
+        <div class="kicker">Solution</div>
+        <h2 class="section-title">Instead, use a Siri vault to give everyone instant access.</h2>
+        <p class="section-copy">FamFiles turns family records into a private, Apple-native vault that Siri can query naturally. App Intents and custom snippet views make quick answers feel native, while on-device intelligence, encrypted iCloud storage, and family access controls keep sensitive data tightly scoped.</p>
       </div>
     </div>
   </section>
 
   <section class="walkthrough">
     <div class="wrap">
-      <div class="kicker">Product Walkthrough</div>
-      <h2 class="section-title">The demo is the pitch.</h2>
-      <p class="section-copy">Start with the thing every family already understands: needing one piece of information right now.</p>
+      <div class="kicker">Walkthrough</div>
 
-      <div class="demo-step" style="margin-top:72px">
+      <div class="demo-step" style="margin-top:18px">
         <div class="script-block">
-          <p class="script">Let's start with a simple Siri request for a piece of information.</p>
+          <p class="script">1. Simple Siri requests</p>
+          <p class="script-small">The easiest, fastest way to access any piece of family information.</p>
         </div>
         <div class="phone-stage"><div><div class="phone siri-ssn"></div></div></div>
       </div>
 
       <div class="demo-step reverse">
         <div class="script-block">
-          <p class="script">That was easy. How about something a little more complex?</p>
+          <p class="script">2. Rich Siri answers</p>
+          <p class="script-small">More complex records render as useful cards with interactive fields.</p>
         </div>
         <div class="phone-stage"><div><div class="phone siri-health"></div></div></div>
       </div>
 
       <div class="demo-step">
         <div class="script-block">
-          <p class="script">Got it. All the information is easily available and individually copiable. What if you open the FamFiles app?</p>
+          <p class="script">3. Full record detail</p>
+          <p class="script-small">Open the app for source images, field history, and full history of changes.</p>
         </div>
         <div class="phone-stage"><div><div class="phone record-view"></div></div></div>
       </div>
 
       <div class="demo-step reverse">
         <div class="script-block">
-          <p class="script">Lots more information, including the card image itself and version history. What's the family view of the app?</p>
+          <p class="script">4. Family home base</p>
+          <p class="script-small">People, household records, and recent activity stay organized in one place.</p>
         </div>
         <div class="phone-stage"><div><div class="phone family-view"></div></div></div>
       </div>
 
       <div class="demo-step">
         <div class="script-block">
-          <p class="script">All family members, household information, and recent activity.</p>
-          <p class="script-small">Authorized family members can use Siri to get this info, with access controls as necessary. What about a person view?</p>
+          <p class="script">5. Person-level vaults</p>
+          <p class="script-small">Each family member has their own structured records and permissions.</p>
         </div>
         <div class="phone-stage"><div><div class="phone person-view"></div></div></div>
       </div>
 
       <div class="demo-step reverse">
         <div class="script-block">
-          <p class="script">Makes sense. How do you update info?</p>
+          <p class="script">6. Update by photo</p>
+          <p class="script-small">Snap a card or share a document. FamFiles will alert you to clarify anything ambiguous.</p>
         </div>
         <div class="phone-stage"><div><div class="phone share-reading"></div></div></div>
       </div>
 
       <div class="demo-step" style="margin-bottom:0">
         <div class="script-block">
-          <p class="script">Ooh, I likey. Just share-sheet any content to FamFiles and it figures out what to do.</p>
-          <p class="script-small">Email, photo, text, Slack, whatever. If the app is confident, it updates the right record. If not, it asks one quick clarifying question.</p>
+          <p class="script">7. Share-sheet intake</p>
+          <p class="script-small">Send in emails, photos, text, or PDFs, and the app files them intelligently.</p>
         </div>
         <div class="phone-stage"><div><div class="phone share-updated"></div></div></div>
       </div>
     </div>
   </section>
 
+  <section class="footer-band">
+    <div class="wrap">
+      <div class="kicker">Why Now</div>
+      <h2 class="section-title">Siri finally has enough surface area for this to feel native.</h2>
+      <p class="section-copy">FamFiles is not another database people have to remember to open. It is the private family memory layer that Siri can query, summarize, and present when the moment calls for it.</p>
+      <p class="source-note">Platform framing based on Apple's WWDC 2026 App Intents and Siri guidance, including custom snippet views, App Intents, entity display representations, voice-only dialog fallbacks, and Apple Intelligence integrations.</p>
+    </div>
+  </section>
+
   <section class="section alt">
     <div class="wrap">
       <div class="kicker">Implementation</div>
-      <h2 class="section-title">Native where it matters, encrypted where it counts, intelligent at the edges.</h2>
+      <h2 class="section-title">Simple, seamless, Siri-native, AI behind the scenes</h2>
       <p class="section-copy">FamFiles should feel like a small, trustworthy iOS app, not an enterprise records system. The stack is built around native Apple surfaces for the family-facing experience, a compact cloud layer for sync and coordination, and AI used only where it removes work from the user.</p>
 
       <div class="implementation-grid">
@@ -323,7 +317,7 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
         <div class="implementation-card">
           <div class="icon"><i class="ph ph-cloud-check"></i></div>
           <h3>Back end: CloudKit first, service layer only where useful.</h3>
-          <p>The default data plane is iCloud and CloudKit: private family databases, shared records, change history, conflict resolution, and offline-first sync. A small server can handle entitlement checks, analytics, support tooling, and non-sensitive orchestration, but the sensitive record payloads should not need to live on FamFiles-owned servers.</p>
+          <p>The default storage is iCloud and CloudKit: private family databases, shared records, change history, conflict resolution, and offline-first sync. A small server can handle entitlement checks, analytics, support tooling, and non-sensitive orchestration, but the sensitive record payloads should not need to live on FamFiles-owned servers.</p>
         </div>
         <div class="implementation-card">
           <div class="icon"><i class="ph ph-sparkle"></i></div>
@@ -358,14 +352,6 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
     </div>
   </section>
 
-  <section class="footer-band">
-    <div class="wrap">
-      <div class="kicker">Why Now</div>
-      <h2 class="section-title">Siri finally has enough surface area for this to feel native.</h2>
-      <p class="section-copy">FamFiles is not another database people have to remember to open. It is the private family memory layer that Siri can query, summarize, and present when the moment calls for it.</p>
-      <p class="source-note">Platform framing based on Apple's WWDC 2026 App Intents and Siri guidance, including custom snippet views, App Intents, entity display representations, voice-only dialog fallbacks, and Apple Intelligence integrations.</p>
-    </div>
-  </section>
 </main>
 
 <template id="tpl-siri-ssn">
@@ -426,7 +412,7 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
         <div class="card-list" style="padding:16px;display:flex;flex-direction:column;gap:14px"><div style="display:flex;gap:12px"><div style="width:9px;height:9px;border-radius:50%;background:var(--sky);margin-top:5px"></div><div><div style="font-size:14px;font-weight:700">Tom's passport updated</div><div class="muted" style="font-size:12px">2 days ago</div></div></div><div style="display:flex;gap:12px"><div style="width:9px;height:9px;border-radius:50%;background:var(--mint);margin-top:5px"></div><div><div style="font-size:14px;font-weight:700">New health-insurance card added</div><div class="muted" style="font-size:12px">5 days ago</div></div></div><div style="display:flex;gap:12px"><div style="width:9px;height:9px;border-radius:50%;background:var(--sun);margin-top:5px"></div><div><div style="font-size:14px;font-weight:700">Scarlet's frequent-flyer number added</div><div class="muted" style="font-size:12px">1 week ago</div></div></div></div>
       </div>
     </div>
-    <div class="fade-cta"><div class="pill-button"><i class="ph-bold ph-plus"></i> Add to FamFiles</div></div>
+    <div class="fade-cta"><div class="pill-button"><i class="ph-bold ph-plus"></i> Add info</div></div>
   </div>
 </template>
 
@@ -462,7 +448,7 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
 </template>
 
 <template id="tpl-share-reading">
-  <div class="share-screen"><div class="notch"></div><div class="photo-label">passport photo</div><div class="sheet"><div class="handle"></div><div class="sheet-head"><div class="app-icon"><i class="ph-fill ph-folders"></i></div><div style="flex:1"><div style="font-family:var(--head);font-weight:900;font-size:17px">Add to FamFiles</div><div class="muted" style="font-size:12px">Reading your document...</div></div><div class="spinner"></div></div><div class="extract-card"><div class="doc-thumb"></div><div style="flex:1;display:flex;flex-direction:column;gap:7px"><div class="copy-pill" style="align-self:flex-start"><i class="ph ph-identification-card" style="color:var(--grape)"></i> Passport detected</div><div style="display:flex;align-items:center;gap:8px"><div class="avatar tom small">T</div><div style="font-size:13px;font-weight:700;color:var(--secondary)">Likely <b style="color:var(--ink)">Tom</b></div></div></div></div><div class="section-row-title" style="padding:0;margin-bottom:8px">Extracting</div><div class="field-list"><div class="field"><div style="font-size:13px;font-weight:700;color:var(--secondary)">Passport number</div><div style="display:flex;gap:6px;font-size:14px;font-weight:800"><i class="ph-fill ph-check-circle" style="color:var(--mint)"></i> 5411 22 879</div></div><div class="field"><div style="font-size:13px;font-weight:700;color:var(--secondary)">Expiration date</div><div style="display:flex;gap:6px;font-size:14px;font-weight:800"><i class="ph-fill ph-check-circle" style="color:var(--mint)"></i> Mar 14, 2034</div></div></div></div></div>
+  <div class="share-screen"><div class="notch"></div><div class="photo-label">passport photo</div><div class="sheet"><div class="handle"></div><div class="sheet-head"><div class="app-icon"><i class="ph-fill ph-folders"></i></div><div style="flex:1"><div style="font-family:var(--head);font-weight:900;font-size:17px">Processing photo</div><div class="muted" style="font-size:12px">Extracting fields...</div></div><div class="spinner"></div></div><div class="extract-card"><div class="doc-thumb"></div><div style="flex:1;display:flex;flex-direction:column;gap:7px"><div class="copy-pill" style="align-self:flex-start"><i class="ph ph-identification-card" style="color:var(--grape)"></i> Passport detected</div><div style="display:flex;align-items:center;gap:8px"><div class="avatar tom small">T</div><div style="font-size:13px;font-weight:700;color:var(--secondary)">Likely <b style="color:var(--ink)">Tom</b></div></div></div></div><div class="section-row-title" style="padding:0;margin-bottom:8px">Extracting</div><div class="field-list"><div class="field"><div style="font-size:13px;font-weight:700;color:var(--secondary)">Passport number</div><div style="display:flex;gap:6px;font-size:14px;font-weight:800"><i class="ph-fill ph-check-circle" style="color:var(--mint)"></i> 5411 22 879</div></div><div class="field"><div style="font-size:13px;font-weight:700;color:var(--secondary)">Expiration date</div><div style="display:flex;gap:6px;font-size:14px;font-weight:800"><i class="ph-fill ph-check-circle" style="color:var(--mint)"></i> Mar 14, 2034</div></div></div></div></div>
 </template>
 
 <template id="tpl-share-updated">
