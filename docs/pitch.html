@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FamFiles Pitch</title>
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -38,7 +39,7 @@ button{font:inherit}
 .hero{min-height:92svh;padding:54px 0 72px;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,430px);gap:52px;align-items:center}
 .brand{display:flex;align-items:center;gap:18px;margin-bottom:48px}
 .logo{width:76px;height:76px;border-radius:22px;background:linear-gradient(150deg,#FF9F5B,var(--coral) 52%,#FF6FA5);box-shadow:0 14px 30px -10px rgba(255,107,87,.65),inset 0 1px 0 rgba(255,255,255,.4);display:grid;place-items:center;flex:none}
-.logo i{font-size:39px;color:white}
+.logo svg{width:52%;height:52%;stroke:white;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 h1,h2,h3,.script,.brand-name{font-family:var(--head)}
 .brand-name{font-size:42px;font-weight:900;letter-spacing:0;line-height:1}
 .brand-name span{color:var(--coral)}
@@ -53,7 +54,7 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
 .kicker{font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:12px}
 .section-title{font-size:clamp(34px,5vw,58px);line-height:1.02;letter-spacing:0;margin:0 0 18px;font-weight:900;max-width:760px}
 .section-copy{font-size:20px;line-height:1.55;font-weight:650;color:var(--secondary);max-width:820px;margin:0}
-.solution-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:42px;align-items:start}
+.problem-solution{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;align-items:start}
 .note{margin-top:28px;padding:20px 22px;border-left:5px solid var(--coral);background:rgba(255,255,255,.58);border-radius:0 20px 20px 0;font-size:18px;line-height:1.45;font-weight:750;color:var(--ink)}
 .walkthrough{padding:98px 0 110px}
 .demo-step{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);gap:54px;align-items:center;margin:0 0 118px}
@@ -144,7 +145,7 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
 .handle{width:38px;height:5px;border-radius:3px;background:#E3DACE;margin:0 auto 16px}
 .sheet-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
 .app-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(150deg,#FF9F5B,var(--coral) 55%,#FF6FA5);display:grid;place-items:center;flex:none}
-.app-icon i{font-size:22px;color:white}
+.app-icon svg{width:52%;height:52%;stroke:white;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .spinner{width:26px;height:26px;border-radius:50%;border:3px solid #F1ECE6;border-top-color:var(--coral)}
 .extract-card{display:flex;gap:14px;align-items:center;background:var(--sand);border-radius:16px;padding:12px;margin-bottom:14px}
 .doc-thumb{width:60px;height:74px;border-radius:10px;background:repeating-linear-gradient(45deg,#E7DFD5,#E7DFD5 7px,#DCD3C7 7px,#DCD3C7 14px);box-shadow:inset 0 0 0 1px #D8CFC2;flex:none}
@@ -165,7 +166,7 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
 .tech-pill{background:rgba(255,255,255,.62);border:1px solid var(--hairline);border-radius:18px;padding:16px;font-size:15px;line-height:1.35;font-weight:750;color:var(--secondary)}
 .tech-pill b{display:block;color:var(--ink);font-size:16px;margin-bottom:4px}
 @media (max-width:980px){
-  .hero,.solution-layout,.demo-step,.demo-step.reverse{grid-template-columns:1fr;gap:34px}
+  .hero,.problem-solution,.demo-step,.demo-step.reverse{grid-template-columns:1fr;gap:34px}
   .hero{padding-top:36px}
   .hero-side{min-height:auto}
   .demo-step.reverse .script-block,.demo-step.reverse .phone-stage{grid-column:auto;grid-row:auto}
@@ -196,7 +197,7 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
   <section class="hero wrap">
     <div>
       <div class="brand">
-        <div class="logo"><i class="ph-fill ph-folders"></i></div>
+        <div class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 21H16.9999C19.3569 21 20.5354 21 21.2677 20.2678C21.9999 19.5355 21.9999 18.357 21.9999 16C21.9999 13.643 21.9999 12.4645 21.2677 11.7322C20.5354 11 19.3569 11 16.9999 11H7C4.64302 11 3.46453 11 2.7323 11.7322C2.00007 12.4644 2.00005 13.6429 2 15.9999C1.99995 18.357 1.99993 19.5355 2.73217 20.2677C3.4644 21 4.64294 21 7 21Z"/><path d="M4 11C4.00005 9.59977 4.00008 8.89966 4.27263 8.36485C4.5123 7.89455 4.89469 7.51218 5.365 7.27253C5.89981 7 6.59993 7 8.00015 7H16C17.4001 7 18.1002 7 18.635 7.27248C19.1054 7.51217 19.4878 7.89462 19.7275 8.36502C20 8.8998 20 9.59987 20 11"/><path d="M6 7C6.00004 5.5998 6.00006 4.89969 6.27259 4.3649C6.51227 3.89457 6.89467 3.51218 7.36501 3.27252C7.89981 3 8.59991 3 10.0001 3H14C15.4001 3 16.1002 3 16.635 3.27248C17.1054 3.51217 17.4878 3.89462 17.7275 4.36502C18 4.8998 18 5.59987 18 7"/><path d="M16 15L15.7 15.4C15.1111 16.1851 14.8167 16.5777 14.3944 16.7889C13.9721 17 13.4814 17 12.5 17H11.5C10.5186 17 10.0279 17 9.60557 16.7889C9.18328 16.5777 8.88885 16.1851 8.3 15.4L8 15"/></svg></div>
       </div>
       <h1>Fam<span style="color:var(--coral)">Files</span></h1>
       <p class="lede">Your family's info vault, all in one place – answered instantly by Siri.</p>
@@ -214,15 +215,12 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
   </section>
 
   <section class="section alt">
-    <div class="wrap">
-      <div class="kicker">Problem</div>
-      <h2 class="section-title">Keeping track of everyone's info is hard.</h2>
-      <p class="section-copy">Health insurance cards, SSNs, passport photos, camp forms, and membership numbers are scattered across drawers, texts, wallets, emails, and half-stale shared docs. Most families just rely on one organized person to remember where everything is.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap solution-layout">
+    <div class="wrap problem-solution">
+      <div>
+        <div class="kicker">Problem</div>
+        <h2 class="section-title">Keeping track of everyone's info is hard.</h2>
+        <p class="section-copy">Health insurance cards, SSNs, passport photos, camp forms, and membership numbers are scattered across drawers, texts, wallets, emails, and half-stale shared docs. Most families just rely on one organized person to remember where everything is.</p>
+      </div>
       <div>
         <div class="kicker">Solution</div>
         <h2 class="section-title">Instead, use a Siri vault to give everyone instant access.</h2>
@@ -448,7 +446,7 @@ h1{font-size:clamp(46px,8vw,96px);line-height:.96;letter-spacing:0;margin:0 0 22
 </template>
 
 <template id="tpl-share-reading">
-  <div class="share-screen"><div class="notch"></div><div class="photo-label">passport photo</div><div class="sheet"><div class="handle"></div><div class="sheet-head"><div class="app-icon"><i class="ph-fill ph-folders"></i></div><div style="flex:1"><div style="font-family:var(--head);font-weight:900;font-size:17px">Processing photo</div><div class="muted" style="font-size:12px">Extracting fields...</div></div><div class="spinner"></div></div><div class="extract-card"><div class="doc-thumb"></div><div style="flex:1;display:flex;flex-direction:column;gap:7px"><div class="copy-pill" style="align-self:flex-start"><i class="ph ph-identification-card" style="color:var(--grape)"></i> Passport detected</div><div style="display:flex;align-items:center;gap:8px"><div class="avatar tom small">T</div><div style="font-size:13px;font-weight:700;color:var(--secondary)">Likely <b style="color:var(--ink)">Tom</b></div></div></div></div><div class="section-row-title" style="padding:0;margin-bottom:8px">Extracting</div><div class="field-list"><div class="field"><div style="font-size:13px;font-weight:700;color:var(--secondary)">Passport number</div><div style="display:flex;gap:6px;font-size:14px;font-weight:800"><i class="ph-fill ph-check-circle" style="color:var(--mint)"></i> 5411 22 879</div></div><div class="field"><div style="font-size:13px;font-weight:700;color:var(--secondary)">Expiration date</div><div style="display:flex;gap:6px;font-size:14px;font-weight:800"><i class="ph-fill ph-check-circle" style="color:var(--mint)"></i> Mar 14, 2034</div></div></div></div></div>
+  <div class="share-screen"><div class="notch"></div><div class="photo-label">passport photo</div><div class="sheet"><div class="handle"></div><div class="sheet-head"><div class="app-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 21H16.9999C19.3569 21 20.5354 21 21.2677 20.2678C21.9999 19.5355 21.9999 18.357 21.9999 16C21.9999 13.643 21.9999 12.4645 21.2677 11.7322C20.5354 11 19.3569 11 16.9999 11H7C4.64302 11 3.46453 11 2.7323 11.7322C2.00007 12.4644 2.00005 13.6429 2 15.9999C1.99995 18.357 1.99993 19.5355 2.73217 20.2677C3.4644 21 4.64294 21 7 21Z"/><path d="M4 11C4.00005 9.59977 4.00008 8.89966 4.27263 8.36485C4.5123 7.89455 4.89469 7.51218 5.365 7.27253C5.89981 7 6.59993 7 8.00015 7H16C17.4001 7 18.1002 7 18.635 7.27248C19.1054 7.51217 19.4878 7.89462 19.7275 8.36502C20 8.8998 20 9.59987 20 11"/><path d="M6 7C6.00004 5.5998 6.00006 4.89969 6.27259 4.3649C6.51227 3.89457 6.89467 3.51218 7.36501 3.27252C7.89981 3 8.59991 3 10.0001 3H14C15.4001 3 16.1002 3 16.635 3.27248C17.1054 3.51217 17.4878 3.89462 17.7275 4.36502C18 4.8998 18 5.59987 18 7"/><path d="M16 15L15.7 15.4C15.1111 16.1851 14.8167 16.5777 14.3944 16.7889C13.9721 17 13.4814 17 12.5 17H11.5C10.5186 17 10.0279 17 9.60557 16.7889C9.18328 16.5777 8.88885 16.1851 8.3 15.4L8 15"/></svg></div><div style="flex:1"><div style="font-family:var(--head);font-weight:900;font-size:17px">Processing photo</div><div class="muted" style="font-size:12px">Extracting fields...</div></div><div class="spinner"></div></div><div class="extract-card"><div class="doc-thumb"></div><div style="flex:1;display:flex;flex-direction:column;gap:7px"><div class="copy-pill" style="align-self:flex-start"><i class="ph ph-identification-card" style="color:var(--grape)"></i> Passport detected</div><div style="display:flex;align-items:center;gap:8px"><div class="avatar tom small">T</div><div style="font-size:13px;font-weight:700;color:var(--secondary)">Likely <b style="color:var(--ink)">Tom</b></div></div></div></div><div class="section-row-title" style="padding:0;margin-bottom:8px">Extracting</div><div class="field-list"><div class="field"><div style="font-size:13px;font-weight:700;color:var(--secondary)">Passport number</div><div style="display:flex;gap:6px;font-size:14px;font-weight:800"><i class="ph-fill ph-check-circle" style="color:var(--mint)"></i> 5411 22 879</div></div><div class="field"><div style="font-size:13px;font-weight:700;color:var(--secondary)">Expiration date</div><div style="display:flex;gap:6px;font-size:14px;font-weight:800"><i class="ph-fill ph-check-circle" style="color:var(--mint)"></i> Mar 14, 2034</div></div></div></div></div>
 </template>
 
 <template id="tpl-share-updated">
